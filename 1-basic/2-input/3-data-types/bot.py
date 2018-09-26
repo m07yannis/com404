@@ -4,7 +4,7 @@ name = str(input())
 print("How old are you (years)?")
 age = int(input())
 
-print("How much do you weigh (kg)?")
+print("How much do you weight (kg)?")
 weight = float(input())
 
 print("How tall are you (m)?")
