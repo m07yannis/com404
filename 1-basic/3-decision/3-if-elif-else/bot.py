@@ -18,3 +18,6 @@ elif (direction == "s"):
 
 elif (direction == "d"):
   print("I am moving right")
+
+else:
+  print("Error!")
