@@ -1,7 +1,11 @@
-print("Enter a name!")
-Beep = 4
+print("Enter word!")
+word = str(input())
+length = len(word)
 
 count = 0
-while(count < Beep):
-  print("Beep")
+
+while(count < length):
+
+  print("", word)
+
   count = count + 1
