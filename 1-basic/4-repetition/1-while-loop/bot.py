@@ -5,8 +5,8 @@ count = 0
 while (count < NUM_FACES):
   print("~~~~~~~~~")
   print("#       #")
-  print("# O   O #")
-  print("|   V   |")
+  print("# 0   0 #")
+  print("|   ¬   |")
   print("|  ---  |")
   print("|_______|")
 
