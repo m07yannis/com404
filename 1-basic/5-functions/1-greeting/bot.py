@@ -4,3 +4,5 @@ def greet_user():
   print("Hello", name)
 
 greet_user()
+greet_user()
+greet_user()
