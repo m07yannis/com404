@@ -1,9 +1,8 @@
 #Check type of data
-first_value = 30.5
-second_value = 5
+first_number = 3.5
+second_number = 4
+third_number = 1/2
 
-print(first_value, "is of type", type(first_value))
-
-total1 = second_value / second_value
-
-print(second_value, "is of type", type(second_value))
+print(first_number, "is of type", type(first_number))
+print(second_number, "is of type", type(second_number))
+print(third_number, "is of type", type(third_number))
