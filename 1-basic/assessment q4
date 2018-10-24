@@ -1,0 +1,16 @@
+def cast_spell_with(ingredient):
+   print("Double, double toil and trouble. Fire burn and caldron bubble.")
+    
+   if(ingredient == "newt"):
+     print("In goes the eye of a newt that is not so cute.")
+     print("\n") #Display new line
+   elif(ingredient == "toad"):
+      print("In goes a toad to add to our horrible load.") 
+      print("\n")#Display new line  
+   else:
+     print("In goes an ingredient unknown for a spell that will be overblown.")
+     print("\n")#Display new line
+
+cast_spell_with("newt") #Calling the function
+cast_spell_with("toad")
+cast_spell_with("bat")
