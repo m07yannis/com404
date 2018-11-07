@@ -1,4 +1,8 @@
-from gui import Gui
+def add_bottom_button(self):
+        self.bottom_button = Label()
+        self.bottom_button.place(x=200, y=250)
+        self.bottom_button.configure(font="Arial 12",
+                                     text="Subscribe")from gui import Gui
 
 # create the window object
 gui = Gui()
@@ -25,7 +29,7 @@ class Gui(Tk):
         self.add_heading_label()
         self.add_instruction_label()
         self.add_addres_label()
-        
+        self.add_bottom_button()
 
     def add_heading_label(self):   
         # 1. create the component object
@@ -47,3 +51,8 @@ class Gui(Tk):
         self.addres_label.configure(font="Arial 12",
                                          text="Email:")
 
+    def add_bottom_button(self):
+        self.bottom_button = Label()
+        self.bottom_button.pack(fill=X)
+        self.bottom_button.configure(font="Arial 12",
+                                     text="Subscribe")
