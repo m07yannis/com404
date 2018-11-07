@@ -24,7 +24,7 @@ class Gui(Tk):
         #add components/widgets
         self.add_heading_label()
         self.add_instruction_label()
-
+        self.add_addres_label()
         
 
     def add_heading_label(self):   
@@ -32,7 +32,7 @@ class Gui(Tk):
         self.heading_label = Label()
         self.heading_label.pack(fill=X)
         # 2. style the component
-        self.heading_label.configure(font="Arial 18",
+        self.heading_label.configure(font="Arial 16",
                                      text="RECEIVE OUR NEWSLETTER")
 
     def add_instruction_label(self):
@@ -41,3 +41,9 @@ class Gui(Tk):
         self.instruction_label.configure(font="Arial 10",
                                   text="Please enter your email below to receive our newsletter")
         
+    def add_addres_label(self):
+        self.addres_label = Label()
+        self.addres_label.pack(fill=X)
+        self.addres_label.configure(font="Arial 12",
+                                         text="Email:")
+
