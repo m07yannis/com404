@@ -30,7 +30,7 @@ class Gui(Tk):
         self.add_lyric_entry()
         self.add_submit_button()
         self.add_subtitle_label()
-        self.add_lyrics_entry()
+        self.add_lyrics_listbox()
 
 
 
@@ -65,11 +65,12 @@ class Gui(Tk):
         self.subtitle_label.configure(font="Arial 16",
                                       text="Lyrics:")
 
-    def add_lyrics_entry(self):
-        self.lyrics_entry = Entry()
-        self.lyrics_entry.place(x=10, y=240)
-        self.lyrics_entry.configure(font="Arial 25")
+    def add_lyrics_listbox(self):
+        self.lyrics_listbox = Listbox()
+        self.lyrics_listbox.place(x=10, y=240)
+        self.lyrics_listbox.configure(font="Arial 24")
         pass
+
 
 
         
