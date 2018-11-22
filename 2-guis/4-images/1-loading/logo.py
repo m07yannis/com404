@@ -4,7 +4,7 @@ class Gui(tK):
   def __init__(self):
     super().__init__()
 
-    #et window attributes
+    #set window attributes
     self.title(Gui)
 
     #load images/resourse
@@ -33,7 +33,7 @@ class Gui(tK):
     self.plane_image_label.configure(image=self.plane_image, height=60, width=60)
 
 
-#create an object of the gui class when this module is executed
+#create an object of the Gui class when this module is executed
 if (__name__ == ""__main__"):
     gui = Gui()
     gui.mainloop()
