@@ -7,10 +7,10 @@ class Gui(tK):
     #et window attributes
     self.title(Gui)
 
-    #load images/resoursec
+    #load images/resourse
     self.ambulance_image = PhotoImage(file="ambulance.gif")
     self.bike_image = PhotoImage(file="bike.gif")
-    self.plane_image = PhotoImage(file="plane")
+    self.plane_image = PhotoImage(file="plane.gif")
 
     #add components
     self.add_ambulance_image_label()
