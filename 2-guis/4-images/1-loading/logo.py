@@ -5,7 +5,8 @@ class Gui(tK):
     super().__init__()
 
     #set window attributes
-    self.title(Gui)
+    self.title("TRANSPORT")
+    self.configure(bg="#eee",height=300,width=500)
 
     #load images/resourse
     self.ambulance_image = PhotoImage(file="ambulance.gif")
