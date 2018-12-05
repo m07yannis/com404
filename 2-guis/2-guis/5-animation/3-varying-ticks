@@ -1,0 +1,208 @@
+#Bouncing ball
+
+
+
+from tkinter import *
+
+import time
+
+
+
+#the class
+
+class AnimatedGui(Tk):
+
+    def __init__(self):
+
+        super().__init__()
+
+
+
+        #load resources
+
+        self.ball_image = PhotoImage(file="ball.gif")
+        self.ball2_image = PhotoImage(file="ball2.gif")
+        self.ball3_image = PhotoImage(file="ball3.gif")
+
+
+
+        #set window attributes
+
+        self.title("MyAnimation")
+
+        self.configure(height=500, width=500)
+
+
+
+        #set animation attributes first ball
+
+        self.ball_x_pos = 0
+
+        self.ball_y_pos = 20
+
+        self.ball_x_change = 10
+
+        self.ball_y_change = 0
+
+        #set animation attributs second ball
+
+        self.ball2_x_pos = 0
+
+        self.ball2_y_pos = 200
+
+        self.ball2_x_change = 20
+
+        self.ball2_y_change = 0
+
+        #set animation attributes third ball
+
+        self.ball3_x_pos = 0
+
+        self.ball3_y_pos = 350
+
+        self.ball3_x_change = 30
+
+        self.ball3_y_change = 0
+
+
+
+        #add components
+
+        self.add_ball_image_label()
+        self.add_ball2_image_label()
+        self.add_ball3_image_label()
+
+
+
+        #start the timer
+
+        self.tick()
+
+
+
+    #the timer tick function first ball
+
+    def tick(self):
+
+        self.ball_x_pos = self.ball_x_pos + self.ball_x_change
+
+        self.ball_y_pos = self.ball_y_pos + self.ball_y_change
+
+        self.ball_image_label.place(x=self.ball_x_pos,
+
+                                    y=self.ball_y_pos)
+
+
+
+      
+        if self.ball_x_pos >= 0:
+
+            self.ball_x_change = -self.ball_x_change
+
+
+        if self.ball_x_pos <= 460:
+
+            self.ball_x_change = -self.ball_x_change
+
+
+        #the timer tick function second ball
+
+        self.ball2_x_pos = self.ball2_x_pos + self.ball2_x_change
+
+        self.ball2_y_pos = self.ball2_y_pos + self.ball2_y_change
+
+        self.ball2_image_label.place(x=self.ball2_x_pos,
+
+                                    y=self.ball2_y_pos)
+
+
+
+      
+        if self.ball2_x_pos >= 0:
+
+            self.ball2_x_change = -self.ball2_x_change
+
+
+        if self.ball2_x_pos <= 460:
+
+            self.ball2_x_change = -self.ball2_x_change
+
+            
+    
+        #the timer tick function third ball
+            
+        self.ball3_x_pos = self.ball3_x_pos + self.ball3_x_change
+
+        self.ball3_y_pos = self.ball3_y_pos + self.ball3_y_change
+
+        self.ball3_image_label.place(x=self.ball3_x_pos,
+
+                                    y=self.ball3_y_pos)
+
+
+
+      
+        if self.ball3_x_pos >= 0:
+
+            self.ball3_x_change = -self.ball3_x_change
+
+
+        if self.ball3_x_pos <= 460:
+
+            self.ball3_x_change = -self.ball3_x_change          
+
+            
+
+
+
+        self.after(100, self.tick)
+
+        
+
+
+
+    #the first ball image
+
+    def add_ball_image_label(self):
+
+        self.ball_image_label = Label()
+
+        self.ball_image_label.place(x=self.ball_x_pos,
+
+                                    y=self.ball_y_pos)
+
+        self.ball_image_label.configure(image=self.ball_image)
+
+
+    #the second ball image
+
+    def add_ball2_image_label(self):
+
+        self.ball2_image_label = Label()
+
+        self.ball2_image_label.place(x=self.ball2_x_pos,
+                                     y=self.ball2_y_pos)
+
+        self.ball2_image_label.configure(image=self.ball2_image)
+
+
+    #the third ball image
+
+    def add_ball3_image_label(self):
+
+        self.ball3_image_label = Label()
+
+        self.ball3_image_label.place(x=self.ball3_x_pos,
+                                     y=self.ball3_y_pos)
+
+        self.ball3_image_label.configure(image=self.ball3_image)
+
+
+
+# the object (using this line we dont need to have 2 files saved when build the code)
+
+if __name__=="__main__":
+
+    gui = AnimatedGui()
+
+    gui.mainloop()
