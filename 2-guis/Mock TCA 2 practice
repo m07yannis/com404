@@ -1,0 +1,104 @@
+from tkinter import *
+
+# the class
+class CurrencyConverter(Tk):
+
+    def __init__(self):
+
+        # initialise window
+        super().__init__()
+
+        # style the window as follows...
+        # ...add padding of 10 pixels
+        # ...set background colour to pink
+        self.configure(bg="pink",
+                       padx=10,
+                       pady=10)
+
+        # add components
+        self.add_heading_label()
+        self.add_amount_label()
+        self.add_amount_entry()
+        self.add_buttons()
+        self.add_message_label()
+       
+   
+    def add_heading_label(self):
+
+        # add heading label
+        self.heading_label = Label()
+        self.heading_label.pack(fill=X)
+               
+        # style the heading label as follows...
+        # ...change the font to Arial, size 18
+        # ...add padding of 10 pixels above and below
+        # ...add padding of 50 pixels on the sides
+        self.heading_label.configure(bg="pink",
+                                     font="Arial 18",
+                                     pady=10,
+                                     padx=50, 
+                                     text="Currency Converter")
+
+    def add_amount_label(self):
+
+        # add amount label
+        self.amount_label = Label()
+        self.amount_label.pack(anchor=W)
+
+        # style the amount label as follows...
+        # ...set background colour to pink
+        self.amount_label.configure(bg="pink", text="Amount")
+
+    def add_amount_entry(self):
+
+        # add amount entry
+        self.amount_entry = Entry()
+        self.amount_entry.pack(fill=X)
+
+    def add_buttons(self):
+
+        # add buttons frame
+        self.buttons_frame = Frame()
+        self.buttons_frame.pack()
+
+        # style the buttons frame as follows...
+        # ...set the background colour to pink
+        # ...add padding of 10 pixels above and below
+        self.buttons_frame.configure(bg="pink",
+                                     pady=10,
+                                     padx=10)
+       
+        # add clear button
+        self.clear_button = Button(self.buttons_frame)
+        self.clear_button.pack(side=LEFT)
+        
+        # style the clear button
+        self.clear_button.configure(padx=10, text="Clear")
+
+        # add convert button
+        self.convert_button = Button(self.buttons_frame)
+        self.convert_button.pack(side=LEFT)
+        
+        # style the convert button
+        self.convert_button.configure(padx=10, text="Convert")
+
+    def add_message_label(self):
+
+        # add message label
+        self.message_label = Label()
+        self.message_label.pack(fill=X)
+
+        # style the message label as follows...
+        # ...set border to 1 px
+        # ...set background colour to yellow
+        self.message_label.configure(bd=1,
+                                     bg="yellow", 
+                                     text="System Message Displayed Here")
+       
+       
+
+
+# the object
+gui = CurrencyConverter()
+gui.mainloop()
+	
