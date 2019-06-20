@@ -1,0 +1,68 @@
+#this file will be saved in the ain file and run from here
+
+from gui import Gui
+#create the windoww object
+gui = Gui()
+gui.mailoop()
+
+from tkinter import *
+from tkinter import messagebox
+
+class Gui(Tk):
+
+    def __init__(self):
+        super().__init__()
+
+        #set window attributes
+        self.title("Events")
+        self.configure(bg="pink", height=400, width=400)
+
+        #add coponents for each row
+        self.add_heading_label()
+        self.add_instruction_label()
+        self.add_tickets_entry()
+        self.add_submit_button()
+
+
+    def add_heading_label(self):
+        self.heading_label = Label()
+        self.heading_label.place(x=80, y=20)
+        self.heading_label.configure(font="Arial 24", fg="red",
+                                     text="Entrance ticket")
+
+    def add_instruction_label(self):
+        self.instruction_label = Label()
+        self.instruction_label.place(x=30, y=80)
+        self.instruction_label.configure(font="Arial 18", fg="green",
+                                         text="How many tickets are needed")
+
+    def add_tickets_entry(self):
+        self.tickets_entry = Entry()
+        self.tickets_entry.place(x=50, y=150)
+        self.tickets_entry.configure(font="Arial 20", bg="pink", text=())
+
+
+    def add_submit_button(self):
+        self.submit_button = Button()
+        self.submit_button.place(x=60, y=220)
+        self.submit_button.configure(font="Arial 16", fg="blue",
+                                     padx="100", bg="green", text="Submit")
+
+        #bind events
+        self.submit_button.bind("<ButtonRelease-1>", self.submit_button_clicked)
+
+        #letf click response after clicking the button
+        
+    def submit_button_clicked(self, event):  
+        num_tickets = self.tickets_entry.get()
+        messagebox.showinfo("Gui", "You have purchased"
+                            + " " + num_tickets + " " + "tickets!")
+        
+
+
+
+
+
+
+
+        
