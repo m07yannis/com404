@@ -1,0 +1,19 @@
+class employee:
+
+  def __init__(self, first, last, pay):
+    self.first = first
+    self.last = last
+    self.pay = pay
+    self.email = first + "." +last + "@company.com"
+
+employee_1 = employee("tom", "bob", 300)
+employee_2 = employee("julia", "yoyo", 2000)
+
+print("{} {} and has {} $ salary". format(employee_1.first, employee_1.last, employee_1.pay))
+
+print("{} {} and has {} $ salary". format(employee_2.first, employee_2.last, employee_2.pay))
+
+print(employee_1.email)
+print(employee_2.email)
+
+
