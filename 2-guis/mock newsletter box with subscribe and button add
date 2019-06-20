@@ -107,7 +107,7 @@ class Gui(Tk):
     def add_menu_button(self):
         self.menu_button = Button()
         self.menu_button.place(x=100, y=200)
-        self.menu_button.configure(font= "Arial 12", text= "Free money")
+        self.menu_button.configure(fg="red", bg="Blue", font= "Arial 12", text= "Free money")
         
 
 
