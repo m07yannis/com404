@@ -21,7 +21,7 @@ class Gui(Tk):
         self.configure(bg="#eee", height=300, width=400) #backgroung
         
 
-        #add components foe each row
+        #add components for each row
         self.add_heading_label()
         self.add_instruction_label()
         self.add_tickets_entry()
@@ -32,17 +32,17 @@ class Gui(Tk):
         self.heading_label = Label()
         self.heading_label.place(x=80, y=20)
         # style the component
-        self.heading_label.configure(font="Arial 24",
+        self.heading_label.configure(font="Arial 24", fg= "red",
                                      text="Entrance Ticket")
     def add_instruction_label(self):    #this is the instrunction row,second
         self.instruction_label = Label()
-        self.instruction_label.place(x=10, y=80)
+        self.instruction_label.place(x=30, y=80)
         self.instruction_label.configure(font="Arial 18", 
                                          text="How many tickets are needed?")
     def add_tickets_entry(self):        #this isthe entry box for data input
         self.tickets_entry = Entry()
-        self.tickets_entry.place(x=10, y=150)
-        self.tickets_entry.configure(font="Arial 24",
+        self.tickets_entry.place(x=20, y=150)
+        self.tickets_entry.configure(font="Arial 24", bg= "pink",
                                      text=())
 
     def add_submit_button(self):        #this is the button "Submit"
