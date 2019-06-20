@@ -28,7 +28,7 @@ class Gui(Tk):
 
         self.title("Newsletter")
         self.geometry("500x500")
-        
+        self.configure(bg="#eee",height=300,width=500)
 
 
 
