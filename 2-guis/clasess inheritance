@@ -1,0 +1,27 @@
+Class inheritance
+
+class Fish:
+  def __init__(self, first, last="Fish"):  #the last name of fish is already given as most fiah will have this name 
+    self.first = first
+    self.last = last
+
+fish_1 = Fish("perk")
+fish_2 = Fish("salmon")
+fish_3 = Fish("shark")
+
+print("{} {}". format(fish_1.first, fish_1.last))
+print("{} {}". format(fish_2.first, fish_2.last))
+print("{} {}". format(fish_3.first, fish_3.last))
+
+OR
+class Fish:
+  def __init__(self, first, last="Fish"):
+    self.first = first
+    self.last = last
+
+fish_1 = Fish("perk")
+fish_2 = Fish("salmon")
+fish_3 = Fish("shark")
+
+print("{} {}, {} {} and {} {}". format(fish_1.first, fish_1.last, fish_2.first, fish_2.last, fish_3.first, fish_3.last))
+
