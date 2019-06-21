@@ -94,3 +94,70 @@ if __name__=="__main__":
     gui = Gui()
 
     gui.mainloop()
+    
+    
+    
+    
+    #THIS IS WHAT I FOUND ON RESOURCES AS EXAMPLE(WORKING)
+    
+    from tkinter import *
+
+root = Tk()
+scrollbar = Scrollbar(root)
+scrollbar.pack( side = RIGHT, fill = Y )
+
+mylist = Listbox(root, yscrollcommand = scrollbar.set )
+for line in range(100):
+   mylist.insert(END, "This is line number " + str(line))
+
+mylist.pack( side = LEFT, fill = BOTH )
+scrollbar.config( command = mylist.yview )
+
+mainloop()
+    
+    
+    
+    
+    
+    
+    #This is what i tried to configure by myself from example above (getting an error, as listbox not defined):
+    
+    from tkinter import *
+
+
+class Gui:
+    def __init__(self):
+        super().__init()
+
+        self.add_scrollbar()
+        self.add_listbox()
+
+    def add_scrollbar(self):
+        self.scrollbar = Scrollbar()
+        self.scrollbar.pack(side = RIGHT, fill = Y )
+        self.scrollbar.configure(command = listbox.yview)
+    
+
+    def add_listbox(self):
+        self.listbox = Listbox()
+        self.listbox.pack(side = LEFT, fill = BOTH,
+                          yscrollcommand = scrollbar.set)
+
+    for line in range(10):
+        listbox.insert(END, "This is line number " + str(line))
+       
+
+
+
+
+
+# the object (using this line we dont need to have 2 files saved when build the code)
+
+if __name__=="__main__":
+
+    gui = Gui()
+
+    gui.mainloop()
+    
+    
+    
