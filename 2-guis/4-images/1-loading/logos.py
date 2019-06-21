@@ -1,6 +1,9 @@
-from tkinter import
 
-class Gui(tK):
+from tkinter import *
+
+
+
+class Gui(Tk):
   def __init__(self):
     super().__init__()
 
@@ -9,9 +12,9 @@ class Gui(tK):
     self.configure(bg="#eee",height=300,width=500)
 
     #load images/resourse
-    self.ambulance_image = PhotoImage(file="ambulance.gif")
-    self.bike_image = PhotoImage(file="bike.gif")
-    self.plane_image = PhotoImage(file="plane.gif")
+    self.ambulance_image = PhotoImage(file="ambulance.png")
+    self.bike_image = PhotoImage(file="bike.png")
+    self.plane_image = PhotoImage(file="plane.png")
 
     #add components
     self.add_ambulance_image_label()
@@ -34,9 +37,14 @@ class Gui(tK):
     self.plane_image_label.configure(image=self.plane_image, height=60, width=60)
 
 
+
+
 #create an object of the Gui class when this module is executed
-if (__name__ == ""__main__"):
+
+if __name__=="__main__":
+
     gui = Gui()
+
     gui.mainloop()
 
 
