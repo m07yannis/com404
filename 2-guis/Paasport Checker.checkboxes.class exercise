@@ -1,0 +1,113 @@
+from tkinter import *
+from tkinter import messagebox
+
+class Gui(Tk):
+
+    def __init__(self):
+        super().__init__()
+
+        # set window attributes
+        self.title("Events")
+        self.configure(bg="#eee", height=300, width=300)
+        
+        # add components
+        self.add_heading_label()
+        self.add_instruction_label()
+        self.add_instruction_label2()
+        self.add_instruction_label3()
+        self.add_check_button1()
+        self.add_check_button2()
+        self.add_check_button3()
+        self.add_check_button4()
+        self.add_check_button5()
+        self.add_check_button6()
+        self.add_submit_button()
+        
+    def add_heading_label(self): # this is the heading row
+        # create the component object
+        self.heading_label = Label()
+        self.heading_label.grid(row=0, column=0)
+        # style the component
+        self.heading_label.configure(font="Arial 20", fg= "red",
+                                     text="Passport Checker")
+        
+    def add_instruction_label(self):
+        self.instruction_label = Label()
+        self.instruction_label.grid(row=3, column=0)
+        self.instruction_label.configure(font="Arial 14", fg="black", bg="#eee",
+                                         text="1. Photo makes face?")
+    def add_check_button1(self):
+        self.check_button1 = Checkbutton()
+        self.check_button1.grid(row=4, column=0)
+        self.check_button1.configure(text="Yes", onvalue = 1, offvalue = 0,
+                                     height = 5, width = 5)
+        
+    def add_check_button2(self):
+        self.check_button2 = Checkbutton()
+        self.check_button2.grid(row=4, column=1)
+        self.check_button2.configure(text="No", onvalue = 1, offvalue = 0,
+                                     height = 5, width = 5)
+        
+    def add_instruction_label2(self):
+        self.instruction_label2 = Label()
+        self.instruction_label2.grid(row=7, column=0)
+        self.instruction_label2.configure(font="Arial 14", fg="black", bg="#eee",
+                                         text="2. Passport has at least 6")
+    def add_check_button3(self):
+        self.check_button3 = Checkbutton()
+        self.check_button3.grid(row=8, column=0)
+        self.check_button3.configure(text="Yes", onvalue = 1, offvalue = 0,
+                                     height = 5, width = 5)
+        
+    def add_check_button4(self):
+        self.check_button4 = Checkbutton()
+        self.check_button4.grid(row=8, column=1)
+        self.check_button4.configure(text="No", onvalue = 1, offvalue = 0,
+                                     height = 5, width = 5)
+
+    def add_instruction_label3(self):
+        self.instruction_label3 = Label()
+        self.instruction_label3.grid(row=10, column=0)
+        self.instruction_label3.configure(font="Arial 14", fg="black", bg="#eee",
+                                          text="3. Visa, if required, is valid")
+
+    def add_check_button5(self):
+        self.check_button5 = Checkbutton()
+        self.check_button5.grid(row=11, column=0)
+        self.check_button5.configure(text="Yes", onvalue = 1, offvalue = 0,
+                                     height = 5, width = 5)
+
+    def add_check_button6(self):
+        self.check_button6 = Checkbutton()
+        self.check_button6.grid(row=11, column=1)
+        self.check_button6.configure(text="No", onvalue = 1, offvalue = 0,
+                                     height = 5, width = 5)
+
+
+        
+
+        
+    def add_submit_button(self):
+        self.submit_button = Button()
+        self.submit_button.grid(row=50, column=0)
+        self.submit_button.configure(font="Arial 14", fg="blue", bg="yellow",
+                                     text="Check", padx="50")
+        self.submit_button.bind("<ButtonRelease-1>", self.submit_button_clicked)
+
+    def submit_button_clicked(self, event):
+        messagebox.showinfo("Passport", "Passport check")
+        
+
+
+
+# the object (using this line we dont need to have 2 files saved when build the code)
+
+if __name__=="__main__":
+
+    gui = Gui()
+
+    gui.mainloop()
+
+
+
+        
