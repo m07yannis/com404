@@ -1,0 +1,56 @@
+
+#
+from tkinter import*
+
+
+class Button(Tk):
+    def __init__(self):
+        super().__init__()
+
+        self.title("Button")
+        self.configure(bg="pink")
+        self.geometry("300x300")
+
+
+        #add components
+        self.add_black_button()
+        self.add_green_button()
+        self.add_red_button()
+        self.add_blue_button()
+
+    def add_black_button(self):
+        self.black_button = Button()
+        self.black_button.place(x=10, y=20)
+        self.black_button.configure(fg="black", bg="yellow", text="Black")
+
+    def add_green_button(self):
+        self.green_button = Button()
+        self.green_button.place(x=20, y=40)
+        self.green_button.configure(fg="green", bg="yellow", text="Green")
+
+    def add_red_button(self):
+        self.red_button = Button()
+        self.red_button.place(x=40, y=50)
+        self.red_button.configure(fg="red", bg="green", text="Red")
+
+    def add_blue_button(self):
+        self.blue_button = Button()
+        self.blue_button.place(x=60, y=100)
+        self.blue_button.configure(fg="blue", bg="yellow", text="Blue")
+
+
+
+
+
+
+
+
+
+
+# the object (using this line we dont need to have 2 files saved when build the code)
+
+if __name__=="__main__":
+
+    button = Button()
+
+    button.mainloop()
