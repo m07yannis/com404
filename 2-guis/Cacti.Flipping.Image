@@ -1,0 +1,84 @@
+from tkinter import *
+
+class Gui(Tk):
+    def __init__(self):
+        super().__init__()
+
+        #set window attributes
+
+        self.title("Gui")
+        self.configure(bg="#eee", height=400, width=500)
+
+        #load image resources
+        self.cactus_image = PhotoImage(file="cactus.gif")
+       
+
+        #add components
+        self.add_heading_label()
+        self.add_cactus_image_label()
+        self.add_submit_button()
+
+    def add_heading_label(self):
+        self.heading_label = Label()
+        self.heading_label.pack(side = TOP)
+        self.heading_label.configure(font="Arial 20", fg= "green",
+                                     text="Cactus Leaves")
+
+    def add_cactus_image_label(self):
+        self.cactus_image_label = Label()
+        self.cactus_image_label.pack(side = TOP)
+        self.cactus_image_label.configure(image=self.cactus_image, height=200,
+                                          width=300)
+
+        
+
+    def add_submit_button(self):
+        self.submit_button = Button()
+        self.submit_button.pack(side = BOTTOM)
+        self.submit_button.configure(font="Arial 18", fg="black", bg="green",
+                                     text="Flip", padx=50)
+
+        #bind events
+        self.submit_button.bind("<ButtonRelease-1>", self.submit_button_clicked)
+        self.submit_button.bind("<ButtonRelease-3>", self.submit_button_clicked)
+
+        #letf/right click response
+    def submit_button_clicked(self, event):
+        pass
+
+        #to change the image with new one use the config method (i think)
+    
+        #self.cacti_image_label.configure(image = self.cacti_with_name_image)
+    
+        #create another image using same image with a name printed on it
+        #load image 2 resources and image 2 components then:
+        #def add_cactus_image_label(self):
+             #self.cactus_image1_label = Label()
+             #self.cactus_image1_label.pack(side = TOP)
+             #self.cactus_image1_label.configure(image=self.cactus1_image,
+                                          #height=200,
+                                          #width=300)
+        
+        
+        
+    
+        
+
+
+
+
+
+
+
+
+
+
+
+# the object using this line
+
+if __name__=="__main__":
+
+    gui = Gui()
+
+    gui.mainloop()
+
