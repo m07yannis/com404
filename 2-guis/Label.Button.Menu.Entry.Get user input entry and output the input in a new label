@@ -1,0 +1,97 @@
+from tkinter import *
+
+
+test = Tk()
+test1 = Tk()
+
+#define the command created for button_one (done after creating the command)
+def Hello():
+    b = a.get()
+    third_label = Label(test1, text= b, fg="red", bg="yellow", font=10).pack()
+
+    
+#define the command created for second_button
+def Delete():
+    forth_label = Label(test1, text="Deleted", fg="blue", bg="yellow", font=10).pack()
+
+#define the command for the menu bar lists
+def newfile():
+    fifth_label = Label(test1, text="Created a new file", fg="red",
+                        bg="yellow").pack()
+    
+    
+#creating a variable which will store the 2 button commands when they are press
+a = StringVar()
+
+#creating the main interface
+test.title("Yannis")
+test1.title("Marinica")
+
+#creating secong gui interface
+test.geometry("300x300+100+50")
+test1.geometry("300x300+500+50")
+
+test.configure(bg="yellow")
+test1.configure(bg="lime")
+
+#creating components(labels, buttons)
+first_label = Label(text="First Label", font="Arial 18", fg="green", bg="lime",
+                   relief= SUNKEN, padx="30").pack(side = TOP)
+second_label = Label(text="Second Label", font="Arial 18", fg="red", bg="lime",
+                   relief = RIDGE, padx="30").pack(side = BOTTOM)
+
+button_one = Button(text="Enter", fg="red", bg="pink", width="5",
+                    command = Hello).pack(side = LEFT)
+button_two = Button(text="Delete", fg="blue", bg="pink", width="5",
+                    command = Delete).pack(side = RIGHT)
+
+#creating an entry 
+text = Entry(textvariable = a, width="30", font=18).pack()
+
+#creating a menu
+mymenu = Menu()
+
+#creating a list for the menu bar entry which will be stored in label="File"
+list_one = Menu()
+
+
+#adding a command and name it, to the list created
+list_one.add_command(label="New File", command = newfile)#create a command 
+list_one.add_command(label="Open File")
+list_one.add_command(label="Save")
+list_one.add_command(label="Recent Files")
+
+#creating a second list for the label="Format" in the menu bar
+list_two = Menu()
+
+#adding command to the list
+list_two.add_command(label="Cut")
+list_two.add_command(label="Paste")
+list_two.add_command(label="Undo")
+list_two.add_command(label="Redo")
+
+#creatint a third list for the label=Format in the menu bar
+list_three = Menu()
+
+#adding commands to the list
+list_three.add_command(label="Indent Region")
+list_three.add_command(label="Dedent Region")
+list_three.add_command(label="Uncoment Region")
+list_three.add_command(label="Hakuna Matata")
+
+#add components to the menu      #bind list_one to the File menu entry
+mymenu.add_cascade(label="File", menu=list_one)
+mymenu.add_cascade(label="Edit", menu = list_two)
+mymenu.add_cascade(label="Format", menu=list_three)
+mymenu.add_cascade(label="Run")
+mymenu.add_cascade(label="Eurika")
+
+
+test.config(menu=mymenu)
+
+
+
+
+
+
+test.mainloop()
