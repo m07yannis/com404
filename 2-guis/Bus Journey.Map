@@ -1,0 +1,78 @@
+from tkinter import *
+from tkinter import messagebox
+
+
+class Map(Tk):
+    def __init__(self):
+        super().__init__()
+
+        #set window attributes
+        self.map_frame = Frame()
+        self.map_frame.configure(width=400, height=300)
+        self.map_frame.pack(side = BOTTOM)
+        
+
+        #load resources/images
+        self.map_image = PhotoImage(file="map.gif")
+        self.bus_image = PhotoImage(file="bus.gif")
+
+
+
+        #add components
+        self.add_heading_label()
+        self.add_map_image_label()
+        self.add_bus_image_label()
+        self.bus_move()
+
+        #defining the objects
+    def add_heading_label(self):
+        self.heading_label = Label()
+        self.heading_label.pack(side = TOP)
+        self.heading_label.configure(font="Arial 18", fg="red",
+                                     text="Bus Journey")
+
+    def add_map_image_label(self):
+        self.map_image_label = Label(self.map_frame)
+        self.map_image_label.place(x=0, y=0)
+        self.map_image_label.configure(image=self.map_image)
+                                       
+
+    def add_bus_image_label(self):
+        self.bus_image_label = Label(self.map_frame)
+        self.bus_image_label.place(x=10, y=10)
+        self.bus_image_label.configure(image=self.bus_image)
+
+    def add_bus_move(self):
+        self.bus_move_label = Event(self.map_frame)
+        self.bus_move_label.place(event.x, event.y)
+        self.bus_move_label.configure(image=self.bus_image)
+
+        #bind events
+        self.bus_move.bind("<ButtonRelease-1>", self.bus_move_clicked)
+
+
+        #click responose afer clicking the left mouse button
+    def bus_move(self, event):
+        messagebox.showinfo("Bus Journey Map", "Mouse x is" + str(event.x))
+        messagebox.showinfo("Bus Journey Map", "Mouse y is" + str(event.y))
+                                       
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+if __name__ == "__main__":
+
+    map = Map()
+    map.mainloop()
+    
+    
