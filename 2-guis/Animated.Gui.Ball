@@ -14,7 +14,7 @@ class AnimatedGui(Tk):
                        width=500)
 
         # set animation attributes
-        self.ball_x_pos = 200
+        self.ball_x_pos = 10
         self.ball_y_pos = 200
         self.ball_x_change = 10
         self.ball_y_change = 10
@@ -33,6 +33,18 @@ class AnimatedGui(Tk):
                                     y=self.ball_y_pos)
         self.after(100, self.tick)
 
+        if self.ball_y_pos <= 0:
+            self.ball_y_change = -self.ball_y_change
+
+        if self.ball_x_pos >= 460:
+            self.ball_x_change = -self.ball_x_change
+
+        if self.ball_y_pos >= 460:
+            self.ball_y_change = -self.ball_y_change
+
+        if self.ball_x_pos <= 0:
+            self.ball_x_change = -self.ball_x_change
+
     # the ball image
     def add_ball_image_label(self):
         self.ball_image_label = Label()
@@ -43,4 +55,6 @@ class AnimatedGui(Tk):
 if __name__ == "__main__":
     gui = AnimatedGui()    
     gui.mainloop() 
+     
+
      
