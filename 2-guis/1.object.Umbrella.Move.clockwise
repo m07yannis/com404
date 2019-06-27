@@ -1,0 +1,59 @@
+from tkinter import *
+import time
+
+# the class
+class AnimatedGui(Tk):
+    def __init__(self):
+        super().__init__()
+        
+        # load resources
+        self.umbrela_image = PhotoImage(file="umbrela.gif")
+
+        # set window attributes
+        self.configure(height=500,
+                       width=500)
+
+        # set animation attributes
+        self.umbrela_x_pos = 200
+        self.umbrela_y_pos = 20
+        self.umbrela_x_change = 10
+        self.umbrela_y_change = 10
+
+        # add components
+        self.add_umbrela_image_label() 
+        
+        # start the timer
+        self.tick()
+        
+    # the timer tick function    
+    def tick(self):
+        self.umbrela_x_pos = self.umbrela_x_pos + self.umbrela_x_change
+        self.umbrela_y_pos = self.umbrela_y_pos + self.umbrela_y_change
+        self.umbrela_image_label.place(x=self.umbrela_x_pos,
+                                    y=self.umbrela_y_pos)
+        self.after(100, self.tick)
+
+        if self.umbrela_y_pos <= 0:
+            self.umbrela_y_change = -self.umbrela_y_change
+
+        if self.umbrela_x_pos >= 460:
+            self.umbrela_x_change = -self.umbrela_x_change
+
+        if self.umbrela_y_pos >= 460:
+            self.umbrela_y_change = -self.umbrela_y_change
+
+        if self.umbrela_x_pos <= 0:
+            self.umbrela_x_change = -self.umbrela_x_change
+
+    # the umbrela image
+    def add_umbrela_image_label(self):
+        self.umbrela_image_label = Label()
+        self.umbrela_image_label.place(x=self.umbrela_x_pos,
+                                       y=self.umbrela_x_pos)
+        self.umbrela_image_label.configure(image=self.umbrela_image)
+     
+# the object
+if __name__ == "__main__":
+    gui = AnimatedGui()    
+    gui.mainloop() 
+     
