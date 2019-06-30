@@ -1,0 +1,92 @@
+    
+from tkinter import *
+import time
+
+# the class
+class AnimatedGui(Tk):
+    def __init__(self):
+        super().__init__()
+        
+        # load resources
+        self.plane_image = PhotoImage(file="plane.gif")
+
+        # set window attributes
+        self.configure(height=500,
+                       width=500)
+
+        # set animation attributes
+        self.plane_x_pos = 10
+        self.plane_y_pos = 200
+        self.plane_x_change = 1
+        self.plane_y_change = 1
+
+        # add components
+        self.add_plane_image_label()
+        self.add_submit_button()
+        self.add_submit2_button()
+
+    def add_submit_button(self):
+        self.submit_button = Button()
+        self.submit_button.place(x=50, y=450)
+        self.submit_button.configure(font="Arial 16", relief="raised", bd="4",
+                                     padx="50", width="5",bg="green", text="UP")
+
+        #bind events
+        self.submit_button.bind("<ButtonRelease-1>", self.submit_button_clicked)
+
+
+    def submit_button_clicked(self, event):  
+        plane_x_pos = self.plane_x_pos + self.plane_x_change.get()
+        
+
+    def add_submit2_button(self):
+        self.submit2_button = Button()
+        self.submit2_button.place(x=250, y=450)
+        self.submit2_button.configure(font="Arial 16", relief="raised", bd="4",
+                                     padx="50", width="5",bg="green", text="DOWN")
+
+        self.submit2_button.bind("<ButtonRelease-1>", self.submit_button_clicked)
+
+    def submit_button2_clicked(self, event):  
+        plane_y_pos = self.plane_y_pos + self.plane_y_change.get()
+
+
+        
+        # start the timer
+        self.tick()
+        
+        
+    # the timer tick function    
+    def tick(self):
+        self.plane_x_pos = self.plane_x_pos + self.plane_x_change
+        self.plane_y_pos = self.plane_y_pos + self.plane_y_change
+        self.plane_image_label.place(x=self.plane_x_pos,
+                                    y=self.plane_y_pos)
+        self.after(100, self.tick)
+
+        if self.plane_y_pos <= 0:
+            self.plane_y_change = -self.plane_y_change
+
+        if self.plane_x_pos >= 460:
+            self.plane_x_change = -self.plane_x_change
+
+        if self.plane_y_pos >= 460:
+            self.plane_y_change = -self.plane_y_change
+
+        if self.plane_x_pos <= 0:
+            self.plane_x_change = -self.plane_x_change
+
+    # the ball image
+    def add_plane_image_label(self):
+        self.plane_image_label = Label()
+        self.plane_image_label.place(x=self.plane_x_pos, y=self.plane_x_pos)
+        self.plane_image_label.configure(image=self.plane_image)
+     
+# the object
+if __name__ == "__main__":
+    gui = AnimatedGui()    
+    gui.mainloop() 
+     
+
+     
+
