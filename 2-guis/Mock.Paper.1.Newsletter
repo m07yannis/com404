@@ -1,0 +1,135 @@
+
+    
+from tkinter import *
+from tkinter import messagebox
+
+class Gui(Tk):
+
+    def __init__(self):
+        super().__init__()
+
+        #set window attributes
+        self.title("Newsletter")
+        self.configure(bg="#eee", padx="10", pady="10")
+
+
+
+        #add coponents for each row Part A1
+        self.add_heading_label()
+        self.add_instruction_label()
+        self.add_email_frame()
+        self.add_email_label()
+        self.add_email_entry()
+
+        #load image components part A3
+        self.bike_image = PhotoImage(file="bike.gif")
+
+        #load image components part B
+        self.filled_image = PhotoImage(file="filled.gif")
+        self.empty_image = PhotoImage(file="empty.gif")
+        
+        self.add_type_label() #part B
+        self.add_subscribe_button()
+        self.add_Animation_button() #part C
+        self.add_email_frame()
+
+        #add image components part A3
+        self.add_bike_image_label()
+
+        #add image components part A3
+        self.add_filled_image_label()
+        self.add_empty_image_label()
+
+
+    def add_heading_label(self):
+        self.heading_label = Label()
+        self.heading_label.pack(side = TOP, fill=X)
+        self.heading_label.configure(font="Arial 14",pady="10",
+                                     text="RECEIVE OUR NEWSLETTER")
+
+    def add_instruction_label(self):
+        self.instruction_label = Label()
+        self.instruction_label.pack(fill=X)
+        self.instruction_label.configure(font="Arial 10", padx="10", pady="10",
+                                         justify = LEFT,
+                                         text="Please enter your email below to receive our newsletter.")
+    def add_email_frame(self):
+        self.email_frame = Frame()
+        self.email_frame.pack()
+   
+    def add_email_label(self):
+        self.email_label = Label(self.email_frame)
+        self.email_label.pack(side = LEFT)
+        self.email_label.configure(text="Email:", padx="10")
+ 
+    def add_email_entry(self):
+        self.email_entry = Entry(self.email_frame)
+        self.email_entry.pack(side = LEFT)
+        self.email_entry.configure(bd="2", fg="#f00", width="30")
+
+        
+    #part A3
+    def add_bike_image_label(self):
+        self.bike_image_label = Label(self.email_frame)
+        self.bike_image_label.pack(side = LEFT)
+        self.bike_image_label.configure(image=self.bike_image, height=10,
+                                        width=10)
+        
+    #part B 
+    def add_filled_image_label(self):
+        self.filled_image_label = Label(self.email_frame)
+        self.filled_image_label.pack(side = LEFT)
+        self.filled_image_label.configure(image=self.filled_image,
+                                          height=10, width=10)
+
+    #part B     
+    def add_empty_image_label(self):
+        self.empty_image_label = Label(self.email_frame)
+        self.empty_image_label.pack(side = LEFT)
+        self.empty_image_label.configure(image=self.empty_image,
+                                          height=10, width=10)
+
+    #part B
+    def add_type_label(self):
+        self.type_label = Label()
+        self.type_label.place(x=50, y=150)
+        self.type_label.configure(text="Type", padx="10")
+
+
+        
+    def add_subscribe_button(self):
+        self.subscribe_button = Button()
+        self.subscribe_button.pack(side = BOTTOM, fill=X)
+        self.subscribe_button.configure(font="Arial 10", bg="#fee",
+                                        text="Subscribe")
+
+    #part C
+    def add_Animation_button(self):
+        self.Animation_button = Button()
+        self.Animation_button.pack(side = BOTTOM, fill=X)
+        self.Animation_button.configure(font="Arial 10", bg="#fee",
+                                        text="Start Animation")
+
+        #bind events
+        self.subscribe_button.bind("<ButtonRelease-1>", self.subscribe_button_clicked)
+
+        #letf click response after clicking the button
+        
+    def subscribe_button_clicked(self, event):  
+        email_entry = self.email_entry.get()
+        messagebox.showinfo("Gui", "You have subscribed")
+                        
+        
+
+
+
+# the object (using this line we dont need to have 2 files saved when build the code)
+
+if __name__=="__main__":
+
+    gui = Gui()
+
+    gui.mainloop()
+
+
+ 
