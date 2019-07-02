@@ -1,0 +1,111 @@
+
+from tkinter import *
+from tkinter import messagebox
+
+class Gui(Tk):
+
+    def __init__(self):
+        super().__init__()
+
+        #set window attributes
+        self.title("Mock-2")
+        self.configure(bg="#ffe8e8", padx="10", pady="10")
+
+
+
+        #add coponents for each row
+        self.add_heading_label()
+        self.add_amount_label()
+        self.add_amount_entry()
+
+        #frame buttons
+        self.add_button_frame()
+        self.add_clear_button()
+        self.add_convert_button()
+        
+        self.add_message_label()
+        
+        
+
+    def add_heading_label(self):
+        self.heading_label = Label()
+        self.heading_label.pack(side = TOP, fill=X)
+        self.heading_label.configure(font="Arial 18",padx="50", pady="10",
+                                     bg="#ffe8e8", text="Currency Converter")
+
+    def add_amount_label(self):
+        self.amount_label = Label()
+        self.amount_label.pack(anchor=W)
+        self.amount_label.configure(font="Arial 14", padx="50", pady="10",
+                                    bg="#ffe8e8", text="Amount")
+
+    def add_amount_entry(self):
+        self.amount_entry = Entry()
+        self.amount_entry.pack(fill=X)
+        self.amount_entry.configure(bd="2", fg="#f00", width="30")
+
+        
+    def add_button_frame(self):
+        self.button_frame = Frame()
+        self.button_frame.pack()
+
+    def add_clear_button(self):
+        self.clear_button = Button(self.button_frame)
+        self.clear_button.pack(side = LEFT)
+        self.clear_button.configure(font="Arial 10", bg="pink", padx="10",
+                                        pady="10", width="5", text="Clear")
+
+        # bind events to the clear button
+        self.clear_button.bind("<Button-1>", self.clear_button_clicked)
+
+    def add_convert_button(self):
+        self.convert_button = Button(self.button_frame)
+        self.convert_button.pack(side = LEFT)
+        self.convert_button.configure(font="Arial 10", bg="pink", padx="10",
+                                        pady="10", width="5", text="Convert")
+
+        #bind events to the convert button
+        self.convert_button.bind("<ButtonRelease-1>", self.convert_button_clicked)
+
+
+
+
+    def add_message_label(self):
+        self.message_label = Label()
+        self.message_label.pack(fill=X)
+        self.message_label.configure(bd="1", bg="#fffbce", pady="20",
+                                     text="System Message Displayed Here")
+
+
+
+    def convert_button_clicked(self, event):
+        self.message_label.configure(text="Converting...")
+        num_tickets = self.amount_entry.get()
+        messagebox.showinfo("Gui", "euros with a conversion rate"
+                            + " " + num_tickets + " " + "tickets!")
+
+        
+
+    def clear_button_clicked(self, event):
+        self.amount_entry.configure(text="")
+        self.message_label.configure(text="System Message Displayed Here")
+   
+ 
+
+
+    
+                        
+        
+
+
+
+# the object
+
+if __name__=="__main__":
+
+    gui = Gui()
+
+    gui.mainloop()
+
+
+ 
