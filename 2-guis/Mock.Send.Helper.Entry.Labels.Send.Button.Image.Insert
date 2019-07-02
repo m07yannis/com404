@@ -1,0 +1,118 @@
+
+    
+from tkinter import *
+from tkinter import messagebox
+
+class Gui(Tk):
+
+    def __init__(self):
+        super().__init__()
+
+        #set window attributes
+        self.title("Greetings")
+        self.configure(bg="#6666fd", padx="15", pady="15")
+
+        self.bike_image = PhotoImage(file="bike.gif")
+
+
+
+        #add coponents for each row Part A1
+        self.add_heading_label()
+        self.add_bike_image_label()#Part 2
+        self.add_instruction_label()
+        self.add_message_label()
+        self.add_message_frame()
+        self.add_message_entry()
+        self.add_helper_label()
+        self.add_helper_entry()
+        self.add_send_button()
+        
+        
+       
+
+
+
+
+    def add_heading_label(self):
+        self.heading_label = Label()
+        self.heading_label.pack(side = TOP, fill=X)
+        self.heading_label.configure(font="Arial 16", pady="11", bg="#4141ff",
+                                     fg="#fff", text="SEND HELPER")
+        
+     #Part 2
+    def add_bike_image_label(self):
+        self.bike_image_label = Label()
+        self.bike_image_label.pack()
+        self.bike_image_label.configure(image=self.bike_image, height=30,
+                                        width=30)
+
+
+
+    def add_instruction_label(self):
+        self.instruction_label = Label()
+        self.instruction_label.pack(fill=X)
+        self.instruction_label.configure(font="Arial 10", pady="20",
+                                         justify = LEFT, bg="#4141ff", fg="#fff",
+                                         text="Please complete all fields and then click send.")
+
+
+    def add_message_label(self):
+        self.message_label = Label()
+        self.message_label.pack(anchor=W)
+        self.message_label.configure(pady="10", bg="#4141ff",
+                                     fg="#fff", text="Message:")
+
+    def add_message_frame(self):
+        self.message_frame = Frame()
+        self.message_frame.pack()
+        self.message_frame.configure(bg="#4141ff")
+
+    def add_message_entry(self):
+        self.message_entry = Entry(self.message_frame)
+        self.message_entry.pack(fill=X)
+        self.message_entry.configure(bd="2", fg="#f00", width="50")
+   
+    def add_helper_label(self):
+        self.helper_label = Label(self.message_frame)
+        self.helper_label.pack(side = LEFT)
+        self.helper_label.configure(text="Helper:", pady="10",
+                                    fg="#fff", bg="#4141ff")
+ 
+    def add_helper_entry(self):
+        self.helper_entry = Entry(self.message_frame)
+        self.helper_entry.pack(side = RIGHT)
+        self.helper_entry.configure(bd="2", fg="#fff", width="20")
+
+
+        
+    def add_send_button(self):
+        self.send_button = Button()
+        self.send_button.pack(side = BOTTOM, fill=X)
+        self.send_button.configure(font="Arial 10", bg="#ff0", padx="12",
+                                        text="Send")
+
+
+
+        #bind events
+        self.send_button.bind("<ButtonRelease-1>", self.send_button_clicked)
+
+        #letf click response after clicking the button
+        
+    def send_button_clicked(self, event):  
+        message_entry = self.message_entry.get()
+        messagebox.showinfo("Sent!", "Your helper has been sent!")
+                        
+        
+
+
+
+# the object (using this line we dont need to have 2 files saved when build the code)
+
+if __name__=="__main__":
+
+    gui = Gui()
+
+    gui.mainloop()
+
+
+ 
